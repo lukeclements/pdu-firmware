@@ -191,6 +191,7 @@ void I2C_READ(void) {
 
 void enableGPIOs(void) {
     BURN_5V_Set();
+    BURN1_EN_Set();
     BURN2_EN_Set();
     SW_12V_EN1_Set();
     SW_3V3_EN1_Set();
@@ -201,7 +202,6 @@ void enableGPIOs(void) {
     SW_5V_EN4_Set();
     SW_VBATT_EN_Set();
 //    WDT_WDI_Set();
-    BURN1_EN_Set();
     IN1_Set();
     IN2_Set();
     IN3_Set();
@@ -220,6 +220,7 @@ void enableGPIOs(void) {
 
 void disableGPIOs(void) {
     BURN_5V_Clear();
+    BURN1_EN_Clear();
     BURN2_EN_Clear();
     SW_12V_EN1_Clear();
     SW_3V3_EN2_Clear();
@@ -230,7 +231,6 @@ void disableGPIOs(void) {
     SW_5V_EN4_Clear();
     SW_VBATT_EN_Clear();
 //    WDT_WDI_Clear();
-    BURN1_EN_Set();
     IN1_Clear();
     IN2_Clear();
     IN3_Clear();
