@@ -54,7 +54,6 @@
 
 #include "app.h"
 #include "definitions.h"
-#include "ff.h"
 #include "pdu_packet.h"
 
 // *****************************************************************************

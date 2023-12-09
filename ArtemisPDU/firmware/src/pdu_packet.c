@@ -18,6 +18,7 @@ void decode_pdu_packet(const char *input)
             memcpy(reply, &packet, sizeof(struct pdu_packet));
             SERCOM3_USART_Write(&reply[0], sizeof(reply));
             SERCOM3_USART_Write("\r\n", 2);
+            WDT_Clear();
             break;
         case CommandSetSwitch:
             if(packet.sw_state == 1)
@@ -194,6 +195,7 @@ void decode_pdu_packet(const char *input)
                 memcpy(reply, &telem, sizeof(struct pdu_telem));
                 SERCOM3_USART_Write(&reply[0], sizeof(struct pdu_telem));
                 SERCOM3_USART_Write("\r\n", 2);
+                WDT_Clear();
                 break;
             } 
             packet.type = DataSwitchStatus + PDU_CMD_OFFSET;
