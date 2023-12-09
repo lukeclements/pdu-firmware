@@ -13,9 +13,11 @@ enum PDU_Type
     CommandSetSwitch,
     CommandGetSwitchStatus,
     CommandSetTRQ,
+    CommandGetTRQTelem,
     DataPong,
     DataSwitchStatus,
     DataSwitchTelem,
+    DataTRQTelem,
 };
 typedef uint8_t PDU_Type;
 
@@ -81,11 +83,18 @@ struct __attribute__((packed)) pdu_hbridge_packet
     TRQ_CONFIG config;
 };
 
+struct __attribute__((packed)) pdu_hbridge_telem
+{
+    PDU_Type type;
+    TRQ_CONFIG trq_state[4];
+};
+
 void decode_pdu_packet(const char *input);
 void handlePing();
 void handleSetSwitch(PDU_SW sw, uint8_t sw_state);
 void handleGetSwitchStatus(PDU_SW sw);
 void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config);
+void handleGetTRQTelem();
 void transmit(char *buf, int len);
 
 #endif /* _PDU_PACKET_H */

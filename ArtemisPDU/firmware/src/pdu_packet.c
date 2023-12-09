@@ -31,6 +31,12 @@ void decode_pdu_packet(const char *input)
             WDT_Clear();
             break;
         }
+        case CommandGetTRQTelem:
+        {
+            handleGetTRQTelem();
+            WDT_Clear();
+            break;
+        }
         default:
         {
             break;
@@ -367,6 +373,110 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
             break;
         }
     }
+}
+
+void handleGetTRQTelem()
+{
+    struct pdu_hbridge_telem packet;
+    packet.type = DataTRQTelem;
+    
+    int configVals[2];
+    
+    configVals[0] = PORT_PinRead(IN1_PIN);
+    configVals[1] = PORT_PinRead(IN2_PIN);
+    if (PORT_PinRead(SLEEP1_PIN))
+    {
+        packet.trq_state[0] = SLEEP;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 0)
+    {
+        packet.trq_state[0] = MOTOR_COAST_FAST_DECAY;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 1)
+    {
+        packet.trq_state[0] = DIR_REVERSE;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 0)
+    {
+        packet.trq_state[0] = DIR_FORWARD;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 1)
+    {
+        packet.trq_state[0] = MOTOR_BREAK_SLOW_DECAY;
+    }
+    
+    configVals[0] = PORT_PinRead(IN3_PIN);
+    configVals[1] = PORT_PinRead(IN4_PIN);
+    if (PORT_PinRead(SLEEP1_PIN))
+    {
+        packet.trq_state[1] = SLEEP;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 0)
+    {
+        packet.trq_state[1] = MOTOR_COAST_FAST_DECAY;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 1)
+    {
+        packet.trq_state[1] = DIR_REVERSE;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 0)
+    {
+        packet.trq_state[1] = DIR_FORWARD;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 1)
+    {
+        packet.trq_state[1] = MOTOR_BREAK_SLOW_DECAY;
+    }
+    
+    configVals[0] = PORT_PinRead(IN5_PIN);
+    configVals[1] = PORT_PinRead(IN6_PIN);
+    if (PORT_PinRead(SLEEP2_PIN))
+    {
+        packet.trq_state[2] = SLEEP;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 0)
+    {
+        packet.trq_state[2] = MOTOR_COAST_FAST_DECAY;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 1)
+    {
+        packet.trq_state[2] = DIR_REVERSE;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 0)
+    {
+        packet.trq_state[2] = DIR_FORWARD;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 1)
+    {
+        packet.trq_state[2] = MOTOR_BREAK_SLOW_DECAY;
+    }
+    
+    configVals[0] = PORT_PinRead(IN7_PIN);
+    configVals[1] = PORT_PinRead(IN8_PIN);
+    if (PORT_PinRead(SLEEP2_PIN))
+    {
+        packet.trq_state[3] = SLEEP;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 0)
+    {
+        packet.trq_state[3] = MOTOR_COAST_FAST_DECAY;
+    }
+    else if (configVals[0] == 0 && configVals[1] == 1)
+    {
+        packet.trq_state[3] = DIR_REVERSE;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 0)
+    {
+        packet.trq_state[3] = DIR_FORWARD;
+    }
+    else if (configVals[0] == 1 && configVals[1] == 1)
+    {
+        packet.trq_state[3] = MOTOR_BREAK_SLOW_DECAY;
+    }
+    
+    char reply[sizeof(struct pdu_hbridge_telem)];
+    memcpy(reply, &packet, sizeof(struct pdu_hbridge_telem));
+    transmit(reply, sizeof(struct pdu_hbridge_telem));
 }
 
 void transmit(char *buf, int len)
