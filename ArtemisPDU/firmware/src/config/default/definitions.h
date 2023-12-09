@@ -51,28 +51,17 @@
 #include <stdio.h>
 #include "peripheral/sercom/usart/plib_sercom3_usart.h"
 #include "peripheral/nvmctrl/plib_nvmctrl.h"
-#include "peripheral/sercom/spi_master/plib_sercom2_spi_master.h"
 #include "peripheral/evsys/plib_evsys.h"
 #include "peripheral/port/plib_port.h"
 #include "peripheral/clock/plib_clock.h"
 #include "peripheral/nvic/plib_nvic.h"
 #include "peripheral/wdt/plib_wdt.h"
 #include "peripheral/cmcc/plib_cmcc.h"
-#include "peripheral/sercom/i2c_slave/plib_sercom4_i2c_slave.h"
 #include "peripheral/rtc/plib_rtc.h"
-#include "driver/sdspi/drv_sdspi.h"
-#include "system/time/sys_time.h"
-#include "system/fs/sys_fs.h"
-#include "system/fs/sys_fs_media_manager.h"
-#include "system/fs/sys_fs_fat_interface.h"
-#include "system/fs/fat_fs/file_system/ff.h"
-#include "system/fs/fat_fs/file_system/ffconf.h"
-#include "system/fs/fat_fs/hardware_access/diskio.h"
 #include "FreeRTOS.h"
 #include "task.h"
-#include "driver/spi/drv_spi.h"
+#include "system/time/sys_time.h"
 #include "system/int/sys_int.h"
-#include "system/ports/sys_ports.h"
 #include "system/cache/sys_cache.h"
 #include "system/dma/sys_dma.h"
 #include "osal/osal.h"
@@ -88,6 +77,12 @@ extern "C" {
 
 #endif
 // DOM-IGNORE-END
+
+/* Device Information */
+#define DEVICE_NAME			 "ATSAME51N19A"
+#define DEVICE_ARCH			 "CORTEX-M4"
+#define DEVICE_FAMILY		 "SAME"
+#define DEVICE_SERIES		 "SAME51"
 
 /* CPU clock frequency */
 #define CPU_CLOCK_FREQUENCY 120000000
@@ -202,12 +197,6 @@ Remarks:
 
 typedef struct
 {
-    /* SDSPI0 Driver Object */
-    SYS_MODULE_OBJ drvSDSPI0;
-
-    /* SPI0 Driver Object */
-    SYS_MODULE_OBJ drvSPI0;
-
     SYS_MODULE_OBJ  sysTime;
 
 } SYSTEM_OBJECTS;

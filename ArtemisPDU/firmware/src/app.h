@@ -59,7 +59,6 @@
 #include <string.h>
 #include <ctype.h>
 #include "configuration.h"
-#include "system/fs/sys_fs.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -234,6 +233,9 @@ void APP_Initialize ( void );
  */
 
 void APP_Tasks( void );
+
+void enableAllGPIOs(void);
+void disableAllGPIOs(void);
 
 
 #endif /* APP_H */
