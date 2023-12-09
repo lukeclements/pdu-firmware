@@ -249,7 +249,7 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
                     IN2_Clear();
                     break;
                 }
-                case MOTOR_BREAK_SLOW_DECAY:
+                case MOTOR_BRAKE_SLOW_DECAY:
                 {
                     IN1_Set();
                     IN2_Set();
@@ -287,7 +287,7 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
                     IN4_Clear();
                     break;
                 }
-                case MOTOR_BREAK_SLOW_DECAY:
+                case MOTOR_BRAKE_SLOW_DECAY:
                 {
                     IN3_Set();
                     IN4_Set();
@@ -325,7 +325,7 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
                     IN6_Clear();
                     break;
                 }
-                case MOTOR_BREAK_SLOW_DECAY:
+                case MOTOR_BRAKE_SLOW_DECAY:
                 {
                     IN5_Set();
                     IN6_Set();
@@ -363,7 +363,7 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
                     IN8_Clear();
                     break;
                 }
-                case MOTOR_BREAK_SLOW_DECAY:
+                case MOTOR_BRAKE_SLOW_DECAY:
                 {
                     IN7_Set();
                     IN8_Set();
@@ -403,7 +403,7 @@ void handleGetTRQTelem()
     }
     else if (configVals[0] == 1 && configVals[1] == 1)
     {
-        packet.trq_state[0] = MOTOR_BREAK_SLOW_DECAY;
+        packet.trq_state[0] = MOTOR_BRAKE_SLOW_DECAY;
     }
     
     configVals[0] = PORT_PinRead(IN3_PIN);
@@ -426,7 +426,7 @@ void handleGetTRQTelem()
     }
     else if (configVals[0] == 1 && configVals[1] == 1)
     {
-        packet.trq_state[1] = MOTOR_BREAK_SLOW_DECAY;
+        packet.trq_state[1] = MOTOR_BRAKE_SLOW_DECAY;
     }
     
     configVals[0] = PORT_PinRead(IN5_PIN);
@@ -449,7 +449,7 @@ void handleGetTRQTelem()
     }
     else if (configVals[0] == 1 && configVals[1] == 1)
     {
-        packet.trq_state[2] = MOTOR_BREAK_SLOW_DECAY;
+        packet.trq_state[2] = MOTOR_BRAKE_SLOW_DECAY;
     }
     
     configVals[0] = PORT_PinRead(IN7_PIN);
@@ -472,7 +472,7 @@ void handleGetTRQTelem()
     }
     else if (configVals[0] == 1 && configVals[1] == 1)
     {
-        packet.trq_state[3] = MOTOR_BREAK_SLOW_DECAY;
+        packet.trq_state[3] = MOTOR_BRAKE_SLOW_DECAY;
     }
     
     char reply[sizeof(struct pdu_hbridge_telem)];
