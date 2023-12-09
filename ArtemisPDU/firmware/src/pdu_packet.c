@@ -373,6 +373,7 @@ void handleSetTRQ(TRQ_SELECT select, TRQ_CONFIG config)
             break;
         }
     }
+    handleGetTRQTelem();
 }
 
 void handleGetTRQTelem()
@@ -384,7 +385,7 @@ void handleGetTRQTelem()
     
     configVals[0] = PORT_PinRead(IN1_PIN);
     configVals[1] = PORT_PinRead(IN2_PIN);
-    if (PORT_PinRead(SLEEP1_PIN))
+    if (!PORT_PinRead(SLEEP1_PIN))
     {
         packet.trq_state[0] = SLEEP;
     }
@@ -407,7 +408,7 @@ void handleGetTRQTelem()
     
     configVals[0] = PORT_PinRead(IN3_PIN);
     configVals[1] = PORT_PinRead(IN4_PIN);
-    if (PORT_PinRead(SLEEP1_PIN))
+    if (!PORT_PinRead(SLEEP1_PIN))
     {
         packet.trq_state[1] = SLEEP;
     }
@@ -430,7 +431,7 @@ void handleGetTRQTelem()
     
     configVals[0] = PORT_PinRead(IN5_PIN);
     configVals[1] = PORT_PinRead(IN6_PIN);
-    if (PORT_PinRead(SLEEP2_PIN))
+    if (!PORT_PinRead(SLEEP2_PIN))
     {
         packet.trq_state[2] = SLEEP;
     }
@@ -453,7 +454,7 @@ void handleGetTRQTelem()
     
     configVals[0] = PORT_PinRead(IN7_PIN);
     configVals[1] = PORT_PinRead(IN8_PIN);
-    if (PORT_PinRead(SLEEP2_PIN))
+    if (!PORT_PinRead(SLEEP2_PIN))
     {
         packet.trq_state[3] = SLEEP;
     }
