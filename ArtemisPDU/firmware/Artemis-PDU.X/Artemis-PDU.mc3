@@ -1,4 +1,4 @@
-<config configName="default" projectName="Artemis-PDU" configVersion="1.1" device="ATSAME51N19A" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.5.7">
+<config configName="default" projectName="Artemis-PDU" configVersion="1.1" device="ATSAME51N19A" deviceLibraryClass="com.microchip.mcc.harmony.Harmony3Library" coreVersion="5.6.1">
    <usedPackages class="java.util.ArrayList"/>
    <usedClasses class="java.util.TreeMap">
       <entry>
