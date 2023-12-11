@@ -130,27 +130,27 @@ build/default/debug/_ext/1171490990/initialization.o: \
  ../src/third_party/rtos/FreeRTOS/Source/include/mpu_wrappers.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/task.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/list.h \
- ../src/config/default/system/time/sys_time.h \
- ../src/config/default/system/system.h \
- ../src/config/default/system/system_common.h \
- ../src/config/default/system/system_module.h \
- ../src/config/default/system/system_common.h \
- ../src/config/default/system/time/sys_time_definitions.h \
+ ../src/config/default/peripheral/rstc/plib_rstc.h \
  ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/int/sys_int_mapping.h \
- ../src/config/default/configuration.h \
- ../src/config/default/system/int/sys_int.h \
  ../src/config/default/system/cache/sys_cache.h \
  ../src/config/default/system/dma/sys_dma.h \
  ../src/config/default/system/dma/sys_dma_mapping.h \
- ../src/config/default/osal/osal.h \
+ ../src/config/default/osal/osal.h ../src/config/default/configuration.h \
  ../src/config/default/osal/osal_definitions.h \
  ../src/config/default/osal/osal_freertos.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/queue.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/task.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/semphr.h \
  ../src/third_party/rtos/FreeRTOS/Source/include/queue.h \
- ../src/config/default/system/debug/sys_debug.h ../src/app.h
+ ../src/config/default/system/debug/sys_debug.h \
+ ../src/config/default/system/system.h \
+ ../src/config/default/system/system_common.h \
+ ../src/config/default/system/system_module.h \
+ ../src/config/default/system/system_common.h \
+ ../src/config/default/system/time/sys_time.h \
+ ../src/config/default/system/time/sys_time_definitions.h \
+ ../src/config/default/system/int/sys_int.h ../src/app.h
 
 ../src/config/default/configuration.h:
 
@@ -414,25 +414,11 @@ build/default/debug/_ext/1171490990/initialization.o: \
 
 ../src/third_party/rtos/FreeRTOS/Source/include/list.h:
 
-../src/config/default/system/time/sys_time.h:
-
-../src/config/default/system/system.h:
-
-../src/config/default/system/system_common.h:
-
-../src/config/default/system/system_module.h:
-
-../src/config/default/system/system_common.h:
-
-../src/config/default/system/time/sys_time_definitions.h:
+../src/config/default/peripheral/rstc/plib_rstc.h:
 
 ../src/config/default/system/int/sys_int.h:
 
 ../src/config/default/system/int/sys_int_mapping.h:
-
-../src/config/default/configuration.h:
-
-../src/config/default/system/int/sys_int.h:
 
 ../src/config/default/system/cache/sys_cache.h:
 
@@ -441,6 +427,8 @@ build/default/debug/_ext/1171490990/initialization.o: \
 ../src/config/default/system/dma/sys_dma_mapping.h:
 
 ../src/config/default/osal/osal.h:
+
+../src/config/default/configuration.h:
 
 ../src/config/default/osal/osal_definitions.h:
 
@@ -455,5 +443,19 @@ build/default/debug/_ext/1171490990/initialization.o: \
 ../src/third_party/rtos/FreeRTOS/Source/include/queue.h:
 
 ../src/config/default/system/debug/sys_debug.h:
+
+../src/config/default/system/system.h:
+
+../src/config/default/system/system_common.h:
+
+../src/config/default/system/system_module.h:
+
+../src/config/default/system/system_common.h:
+
+../src/config/default/system/time/sys_time.h:
+
+../src/config/default/system/time/sys_time_definitions.h:
+
+../src/config/default/system/int/sys_int.h:
 
 ../src/app.h:

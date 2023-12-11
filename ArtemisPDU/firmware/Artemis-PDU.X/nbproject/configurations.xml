@@ -30,6 +30,9 @@
             <logicalFolder name="port" displayName="port" projectFiles="true">
               <itemPath>../src/config/default/peripheral/port/plib_port.h</itemPath>
             </logicalFolder>
+            <logicalFolder name="rstc" displayName="rstc" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/rstc/plib_rstc.h</itemPath>
+            </logicalFolder>
             <logicalFolder name="rtc" displayName="rtc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/rtc/plib_rtc.h</itemPath>
             </logicalFolder>
@@ -277,6 +280,9 @@
             </logicalFolder>
             <logicalFolder name="port" displayName="port" projectFiles="true">
               <itemPath>../src/config/default/peripheral/port/plib_port.c</itemPath>
+            </logicalFolder>
+            <logicalFolder name="rstc" displayName="rstc" projectFiles="true">
+              <itemPath>../src/config/default/peripheral/rstc/plib_rstc.c</itemPath>
             </logicalFolder>
             <logicalFolder name="rtc" displayName="rtc" projectFiles="true">
               <itemPath>../src/config/default/peripheral/rtc/plib_rtc_timer.c</itemPath>

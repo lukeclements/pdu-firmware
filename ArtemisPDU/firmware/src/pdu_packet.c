@@ -381,6 +381,9 @@ void handleGetTRQTelem()
     struct pdu_hbridge_telem packet;
     packet.type = DataTRQTelem;
     
+    packet.hbridge_state[0] = PORT_PinRead(FAULT1_PIN);
+    packet.hbridge_state[1] = PORT_PinRead(FAULT2_PIN);
+    
     int configVals[2];
     
     configVals[0] = PORT_PinRead(IN1_PIN);
