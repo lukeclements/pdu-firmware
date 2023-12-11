@@ -1,6 +1,6 @@
-format_version: v1.0
 configName: default
 folderName: Artemis-PDU
+format_version: v1.0
 frameworkPath: C:\Users\ethan\.mcc\HarmonyContent
 processor: ATSAME51N19A
 projectName: Artemis-PDU
@@ -11,4 +11,4 @@ settings:
   TRUSTZONE: 'false'
   CMSISPath: dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: dev_packs\Microchip\SAME51_DFP\3.7.242\atdf\ATSAME51N19A.atdf
+  DFPPath: SAME51_DFP\3.7.242
