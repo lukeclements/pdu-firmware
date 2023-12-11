@@ -62,15 +62,9 @@
 // *****************************************************************************
 // *****************************************************************************
 
-#define APP_DATA_LEN         512
-    
-char APP_INIT_MSG[] = "\r\nAPP INITIALIZED\r\n";
-
 // USART Definitions
 // *****************************************************************************
 #define RX_BUFFER_SIZE 256
-char newline[] = "\r\n";
-char errorMessage[] = "\r\n**** USART error has occurred ****\r\n";
 char receiveBuffer[RX_BUFFER_SIZE] = {};
 int data = 0;
 uint16_t rxCounter = 0;
@@ -88,7 +82,6 @@ void USART_READ(void);
 
 void APP_Initialize ( void )
 {
-//    SERCOM3_USART_Write(&APP_INIT_MSG[0], sizeof(APP_INIT_MSG));
     disableAllGPIOs();
     RTC_Initialize();
     RTC_Timer32Start();
