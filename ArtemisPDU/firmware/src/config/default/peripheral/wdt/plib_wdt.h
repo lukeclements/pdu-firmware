@@ -68,15 +68,6 @@
 // *****************************************************************************
 // *****************************************************************************
 
-typedef void (*WDT_CALLBACK)(uintptr_t context);
-
-typedef struct
-{
-    WDT_CALLBACK      callback;
-
-    uintptr_t         context;
-
-} WDT_CALLBACK_OBJECT;
 
 // *****************************************************************************
 // *****************************************************************************
@@ -104,7 +95,6 @@ void WDT_Clear( void );
 
 void WDT_ClearWithSync( void );
 
-void WDT_CallbackRegister( WDT_CALLBACK callback, uintptr_t context );
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility

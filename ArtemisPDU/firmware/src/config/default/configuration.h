@@ -86,63 +86,12 @@ extern "C" {
 #define SYS_TIME_TICK_FREQ_IN_HZ                    (512)
 
 
-/* File System Service Configuration */
-
-#define SYS_FS_MEDIA_NUMBER               1
-#define SYS_FS_VOLUME_NUMBER              1
-
-#define SYS_FS_AUTOMOUNT_ENABLE           false
-#define SYS_FS_MAX_FILES                  1
-#define SYS_FS_MAX_FILE_SYSTEM_TYPE       1
-#define SYS_FS_MEDIA_MAX_BLOCK_SIZE       512
-#define SYS_FS_MEDIA_MANAGER_BUFFER_SIZE  512
-#define SYS_FS_USE_LFN                    1
-#define SYS_FS_FILE_NAME_LEN              255
-#define SYS_FS_CWD_STRING_LEN             1024
-
-/* File System RTOS Configurations*/
-#define SYS_FS_STACK_SIZE                 1024
-#define SYS_FS_PRIORITY                   1
-
-#define SYS_FS_FAT_VERSION                "v0.14b"
-#define SYS_FS_FAT_READONLY               false
-#define SYS_FS_FAT_CODE_PAGE              437
-#define SYS_FS_FAT_MAX_SS                 SYS_FS_MEDIA_MAX_BLOCK_SIZE
-
-
-
-
-
-
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Driver Configuration
 // *****************************************************************************
 // *****************************************************************************
-/* SDSPI Driver Instance 0 Configuration Options */
-#define DRV_SDSPI_INDEX_0                       0
-#define DRV_SDSPI_CLIENTS_NUMBER_IDX0           1
-#define DRV_SDSPI_CHIP_SELECT_PIN_IDX0          SYS_PORT_PIN_PA27
-#define DRV_SDSPI_SPEED_HZ_IDX0                 5000000
-#define DRV_SDSPI_POLLING_INTERVAL_MS_IDX0      1000
-
-
-
-/* SDSPI Driver Instance 0 RTOS Configurations*/
-#define DRV_SDSPI_STACK_SIZE_IDX0               256
-#define DRV_SDSPI_PRIORITY_IDX0                     1
-
-/* SPI Driver Instance 0 Configuration Options */
-#define DRV_SPI_INDEX_0                       0
-#define DRV_SPI_CLIENTS_NUMBER_IDX0           1
-
-/* SDSPI Driver Common Configuration Options */
-#define DRV_SDSPI_INSTANCES_NUMBER              1
-
-/* SPI Driver Common Configuration Options */
-#define DRV_SPI_INSTANCES_NUMBER              1
-
 
 
 // *****************************************************************************

@@ -59,7 +59,6 @@
 #include <string.h>
 #include <ctype.h>
 #include "configuration.h"
-#include "system/fs/sys_fs.h"
 
 // DOM-IGNORE-BEGIN
 #ifdef __cplusplus  // Provide C++ Compatibility
@@ -75,93 +74,13 @@ extern "C" {
 // *****************************************************************************
 // *****************************************************************************
 
-// *****************************************************************************
-/* Application states
-
-  Summary:
-    Application states enumeration
-
-  Description:
-    This enumeration defines the valid application states.  These states
-    determine the behavior of the application at various times.
-*/
-
-typedef enum
-{
-    /* Application's state machine's initial state. */
-    /* The app mounts the disk */
-    APP_WAIT_SWITCH_PRESS = 0,
-            
-    APP_MOUNT_DISK,
-
-    /* The app unmounts the disk */
-    APP_UNMOUNT_DISK,
-
-    /* The app mounts the disk again */
-    APP_MOUNT_DISK_AGAIN,
-
-        /* Set the current drive */
-    APP_SET_CURRENT_DRIVE,
-
-    /* The app opens the file to read */
-    APP_OPEN_FIRST_FILE,
-
-        /* Create directory */
-    APP_CREATE_DIRECTORY,
-
-        /* The app opens the file to write */
-    APP_OPEN_SECOND_FILE,
-
-    /* The app reads from a file and writes to another file */
-    APP_READ_WRITE_TO_FILE,
-
-    /* The app closes the file*/
-    APP_CLOSE_FILE,
-
-    /* The app closes the file and idles */
-    APP_IDLE,
-
-    /* An app error has occurred */
-    APP_ERROR
-
-} APP_STATES;
-
-
-// *****************************************************************************
-/* Application Data
-
-  Summary:
-    Holds application data
-
-  Description:
-    This structure holds the application's data.
-
-  Remarks:
-    Application strings and buffers are be defined outside this structure.
- */
-
-typedef struct
-{
-    /* SYS_FS File handle for 1st file */
-    SYS_FS_HANDLE               fileHandle;
-
-    /* SYS_FS File handle for 2nd file */
-    SYS_FS_HANDLE               fileHandle1;
-
-    /* Application's current state */
-    APP_STATES                  state;           
-
-    int32_t                     nBytesRead;
-} APP_DATA;
-
 
 // *****************************************************************************
 // *****************************************************************************
 // Section: Application Callback Routines
 // *****************************************************************************
 // *****************************************************************************
-/* These routines are called by drivers when certain events occur.
-*/
+
 
 // *****************************************************************************
 // *****************************************************************************
@@ -234,6 +153,9 @@ void APP_Initialize ( void );
  */
 
 void APP_Tasks( void );
+
+void enableAllGPIOs(void);
+void disableAllGPIOs(void);
 
 
 #endif /* APP_H */

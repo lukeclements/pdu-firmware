@@ -48,11 +48,11 @@
 // Section: Included Files
 // *****************************************************************************
 // *****************************************************************************
-
 #include "configuration.h"
 #include "device_vectors.h"
 #include "interrupts.h"
 #include "definitions.h"
+
 
 
 // *****************************************************************************
@@ -68,7 +68,7 @@ extern const H3DeviceVectors exception_table;
 extern void Dummy_Handler(void);
 
 /* Brief default interrupt handler for unused IRQs.*/
-void __attribute__((optimize("-O1"),section(".text.Dummy_Handler"),long_call, noreturn))Dummy_Handler(void)
+void __attribute__((optimize("-O1"), long_call, noreturn, used))Dummy_Handler(void)
 {
 #if defined(__DEBUG) || defined(__DEBUG_D) && defined(__XC32)
     __builtin_software_breakpoint();
@@ -79,10 +79,8 @@ void __attribute__((optimize("-O1"),section(".text.Dummy_Handler"),long_call, no
 }
 
 /* MISRAC 2012 deviation block start */
-/* MISRA C-2012 Rule 8.6 deviated 124 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
+/* MISRA C-2012 Rule 8.6 deviated 131 times.  Deviation record ID -  H3_MISRAC_2012_R_8_6_DR_1 */
 /* Device vectors list dummy definition*/
-extern void vPortSVCHandler            ( void ) __attribute__((weak, alias("Dummy_Handler")));
-extern void xPortPendSVHandler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void PM_Handler                 ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void MCLK_Handler               ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void OSCCTRL_XOSC0_Handler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -93,6 +91,7 @@ extern void OSCCTRL_DPLL1_Handler      ( void ) __attribute__((weak, alias("Dumm
 extern void OSC32KCTRL_Handler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SUPC_OTHER_Handler         ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SUPC_BODDET_Handler        ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void WDT_Handler                ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_0_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_1_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void EIC_EXTINT_2_Handler       ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -132,10 +131,18 @@ extern void SERCOM1_0_Handler          ( void ) __attribute__((weak, alias("Dumm
 extern void SERCOM1_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM1_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM1_OTHER_Handler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM2_OTHER_Handler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM3_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM3_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM3_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM3_OTHER_Handler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM4_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM4_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM4_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
+extern void SERCOM4_OTHER_Handler      ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM5_0_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM5_1_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
 extern void SERCOM5_2_Handler          ( void ) __attribute__((weak, alias("Dummy_Handler")));
@@ -213,7 +220,7 @@ extern void SDHC0_Handler              ( void ) __attribute__((weak, alias("Dumm
 
 
 
-__attribute__ ((section(".vectors")))
+__attribute__ ((section(".vectors"), used))
 const H3DeviceVectors exception_table=
 {
     /* Configure Initial Stack Pointer, using linker-generated symbols */
@@ -239,7 +246,7 @@ const H3DeviceVectors exception_table=
     .pfnOSC32KCTRL_Handler         = OSC32KCTRL_Handler,
     .pfnSUPC_OTHER_Handler         = SUPC_OTHER_Handler,
     .pfnSUPC_BODDET_Handler        = SUPC_BODDET_Handler,
-    .pfnWDT_Handler                = WDT_InterruptHandler,
+    .pfnWDT_Handler                = WDT_Handler,
     .pfnRTC_Handler                = RTC_InterruptHandler,
     .pfnEIC_EXTINT_0_Handler       = EIC_EXTINT_0_Handler,
     .pfnEIC_EXTINT_1_Handler       = EIC_EXTINT_1_Handler,
@@ -280,18 +287,18 @@ const H3DeviceVectors exception_table=
     .pfnSERCOM1_1_Handler          = SERCOM1_1_Handler,
     .pfnSERCOM1_2_Handler          = SERCOM1_2_Handler,
     .pfnSERCOM1_OTHER_Handler      = SERCOM1_OTHER_Handler,
-    .pfnSERCOM2_0_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_1_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_2_Handler          = SERCOM2_SPI_InterruptHandler,
-    .pfnSERCOM2_OTHER_Handler      = SERCOM2_SPI_InterruptHandler,
+    .pfnSERCOM2_0_Handler          = SERCOM2_0_Handler,
+    .pfnSERCOM2_1_Handler          = SERCOM2_1_Handler,
+    .pfnSERCOM2_2_Handler          = SERCOM2_2_Handler,
+    .pfnSERCOM2_OTHER_Handler      = SERCOM2_OTHER_Handler,
     .pfnSERCOM3_0_Handler          = SERCOM3_0_Handler,
     .pfnSERCOM3_1_Handler          = SERCOM3_1_Handler,
     .pfnSERCOM3_2_Handler          = SERCOM3_2_Handler,
     .pfnSERCOM3_OTHER_Handler      = SERCOM3_OTHER_Handler,
-    .pfnSERCOM4_0_Handler          = SERCOM4_I2C_InterruptHandler,
-    .pfnSERCOM4_1_Handler          = SERCOM4_I2C_InterruptHandler,
-    .pfnSERCOM4_2_Handler          = SERCOM4_I2C_InterruptHandler,
-    .pfnSERCOM4_OTHER_Handler      = SERCOM4_I2C_InterruptHandler,
+    .pfnSERCOM4_0_Handler          = SERCOM4_0_Handler,
+    .pfnSERCOM4_1_Handler          = SERCOM4_1_Handler,
+    .pfnSERCOM4_2_Handler          = SERCOM4_2_Handler,
+    .pfnSERCOM4_OTHER_Handler      = SERCOM4_OTHER_Handler,
     .pfnSERCOM5_0_Handler          = SERCOM5_0_Handler,
     .pfnSERCOM5_1_Handler          = SERCOM5_1_Handler,
     .pfnSERCOM5_2_Handler          = SERCOM5_2_Handler,

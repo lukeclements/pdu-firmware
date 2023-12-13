@@ -65,14 +65,6 @@
 // *****************************************************************************
 // *****************************************************************************
 
-/*** Macros for CUS_SDA pin ***/
-#define CUS_SDA_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 12U)) & 0x01U)
-#define CUS_SDA_PIN                  PORT_PIN_PB12
-
-/*** Macros for CUS_SCL pin ***/
-#define CUS_SCL_Get()               (((PORT_REGS->GROUP[1].PORT_IN >> 13U)) & 0x01U)
-#define CUS_SCL_PIN                  PORT_PIN_PB13
-
 /*** Macros for BURN_5V pin ***/
 #define BURN_5V_Set()               (PORT_REGS->GROUP[1].PORT_OUTSET = ((uint32_t)1U << 15U))
 #define BURN_5V_Clear()             (PORT_REGS->GROUP[1].PORT_OUTCLR = ((uint32_t)1U << 15U))

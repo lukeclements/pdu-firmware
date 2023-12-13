@@ -1,7 +1,7 @@
 /*
  * Header file for ATSAME51N19A
  *
- * Copyright (c) 2022 Microchip Technology Inc. and its subsidiaries.
+ * Copyright (c) 2023 Microchip Technology Inc. and its subsidiaries.
  *
  * Subject to your compliance with these terms, you may use Microchip software and any derivatives
  * exclusively with Microchip products. It is your responsibility to comply with third party license
@@ -20,7 +20,7 @@
  *
  */
 
-/* File generated from device description version 2022-02-14T14:27:13Z */
+/* File generated from device description version 2023-03-17T09:49:55Z */
 #ifndef _SAME51N19A_H_
 #define _SAME51N19A_H_
 

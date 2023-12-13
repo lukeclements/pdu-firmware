@@ -1,4 +1,4 @@
-"Pin Number","Pin ID","Custom Name","Function","Mode", "Direction","Latch","Pull Up","Pull Down","Drive Strength"
+Pin Number,Pin ID,Custom Name,Function,Mode, Direction,Latch,Pull Up,Pull Down,Drive Strength
 1,PA00,,Available,,,,,,NORMAL
 2,PA01,,Available,,,,,,NORMAL
 3,PC00,,Available,,,,,,NORMAL
@@ -26,8 +26,8 @@
 29,PA11,,Available,,,,,,NORMAL
 32,PB10,,Available,,,,,,NORMAL
 33,PB11,,Available,,,,,,NORMAL
-34,PB12,CUS_SDA,SERCOM4_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
-35,PB13,CUS_SCL,SERCOM4_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
+34,PB12,,Available,,,,,,NORMAL
+35,PB13,,Available,,,,,,NORMAL
 36,PB14,,Available,,,,,,NORMAL
 37,PB15,BURN_5V,GPIO,Digital,In/Out,Low,,,NORMAL
 40,PC10,SLEEP1,GPIO,Digital,In/Out,Low,,,NORMAL
@@ -40,8 +40,8 @@
 47,PA13,SD_SCK,SERCOM2_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
 48,PA14,SD_MISO,SERCOM2_PAD2,Digital,High Impedance,n/a,No,No,NORMAL
 49,PA15,BURN2_EN,GPIO,Digital,In/Out,Low,,,NORMAL
-52,PA16,FAULT2,GPIO,Digital,In/Out,Low,,,NORMAL
-53,PA17,FAULT1,GPIO,Digital,In/Out,Low,,,NORMAL
+52,PA16,FAULT2,GPIO,Digital,In,n/a,No,No,NORMAL
+53,PA17,FAULT1,GPIO,Digital,In,n/a,No,No,NORMAL
 54,PA18,SLEEP2,GPIO,Digital,In/Out,Low,,,NORMAL
 55,PA19,IN5,GPIO,Digital,In/Out,Low,,,NORMAL
 56,PC16,IN6,GPIO,Digital,In/Out,Low,,,NORMAL
@@ -57,7 +57,7 @@
 68,PB20,UART2_TXD,SERCOM3_PAD0,Digital,High Impedance,n/a,No,No,NORMAL
 69,PB21,UART2_RXD,SERCOM3_PAD1,Digital,High Impedance,n/a,No,No,NORMAL
 70,PA20,,Available,,,,,,NORMAL
-71,PA21,LED,GPIO,Digital,In/Out,High,,,NORMAL
+71,PA21,LED,GPIO,Digital,Out,High,,,NORMAL
 72,PA22,,Available,,,,,,NORMAL
 73,PA23,,Available,,,,,,NORMAL
 74,PA24,USB_DM,USB_DM,Digital,High Impedance,n/a,No,No,NORMAL

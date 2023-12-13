@@ -60,26 +60,8 @@ void NVIC_Initialize( void )
     /* Enable the interrupt sources and configure the priorities as configured
      * from within the "Interrupt Manager" of MHC. */
     NVIC_SetPriority(SysTick_IRQn, 7);
-    NVIC_SetPriority(WDT_IRQn, 7);
-    NVIC_EnableIRQ(WDT_IRQn);
     NVIC_SetPriority(RTC_IRQn, 7);
     NVIC_EnableIRQ(RTC_IRQn);
-    NVIC_SetPriority(SERCOM2_0_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM2_0_IRQn);
-    NVIC_SetPriority(SERCOM2_1_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM2_1_IRQn);
-    NVIC_SetPriority(SERCOM2_2_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM2_2_IRQn);
-    NVIC_SetPriority(SERCOM2_OTHER_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM2_OTHER_IRQn);
-    NVIC_SetPriority(SERCOM4_0_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM4_0_IRQn);
-    NVIC_SetPriority(SERCOM4_1_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM4_1_IRQn);
-    NVIC_SetPriority(SERCOM4_2_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM4_2_IRQn);
-    NVIC_SetPriority(SERCOM4_OTHER_IRQn, 7);
-    NVIC_EnableIRQ(SERCOM4_OTHER_IRQn);
 
     /* Enable Usage fault */
     SCB->SHCSR |= (SCB_SHCSR_USGFAULTENA_Msk);
@@ -88,6 +70,9 @@ void NVIC_Initialize( void )
 
     /* Enable Bus fault */
     SCB->SHCSR |= (SCB_SHCSR_BUSFAULTENA_Msk);
+
+    /* Enable memory management fault */
+    SCB->SHCSR |= (SCB_SHCSR_MEMFAULTENA_Msk);
 
 }
 

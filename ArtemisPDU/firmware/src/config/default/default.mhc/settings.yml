@@ -1,9 +1,9 @@
-format_version: v1.0
 configName: default
-folderName: ArtemisPDU
-frameworkPath: C:\Users\ethan\Documents\Harmony3
+folderName: Artemis-PDU
+format_version: v1.0
+frameworkPath: C:\Users\ethan\.mcc\HarmonyContent
 processor: ATSAME51N19A
-projectName: ArtemisPDU
+projectName: Artemis-PDU
 settings:
   PackageFilter: ''
   FORCE_OPTIMIZATION: 'false'
@@ -11,4 +11,4 @@ settings:
   TRUSTZONE: 'false'
   CMSISPath: dev_packs\arm\CMSIS\5.8.0
   MERGE_STRATEGY: USER_ALL
-  DFPPath: dev_packs\Microchip\SAME51_DFP\3.6.130\atdf\ATSAME51N19A.atdf
+  DFPPath: SAME51_DFP\3.7.242

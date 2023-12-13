@@ -52,6 +52,7 @@
 
 #include "configuration.h"
 #include "definitions.h"
+#include "sys_tasks.h"
 
 
 // *****************************************************************************
@@ -59,32 +60,12 @@
 // Section: RTOS "Tasks" Routine
 // *****************************************************************************
 // *****************************************************************************
-void _DRV_SDSPI_0_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        DRV_SDSPI_Tasks(sysObj.drvSDSPI0);
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
-
-
-void _SYS_FS_Tasks(  void *pvParameters  )
-{
-    while(1)
-    {
-        SYS_FS_Tasks();
-        vTaskDelay(10 / portTICK_PERIOD_MS);
-    }
-}
-
-
 /* Handle for the APP_Tasks. */
 TaskHandle_t xAPP_Tasks;
 
-void _APP_Tasks(  void *pvParameters  )
+static void lAPP_Tasks(  void *pvParameters  )
 {   
-    while(1)
+    while(true)
     {
         APP_Tasks();
     }
@@ -110,33 +91,16 @@ void SYS_Tasks ( void )
 {
     /* Maintain system services */
     
-    xTaskCreate( _SYS_FS_Tasks,
-        "SYS_FS_TASKS",
-        SYS_FS_STACK_SIZE,
-        (void*)NULL,
-        SYS_FS_PRIORITY,
-        (TaskHandle_t*)NULL
-    );
-
-
 
     /* Maintain Device Drivers */
-        xTaskCreate( _DRV_SDSPI_0_Tasks,
-        "DRV_SD_0_TASKS",
-        DRV_SDSPI_STACK_SIZE_IDX0,
-        (void*)NULL,
-        DRV_SDSPI_PRIORITY_IDX0,
-        (TaskHandle_t*)NULL
-    );
-
-
+    
 
     /* Maintain Middleware & Other Libraries */
     
 
     /* Maintain the application's state machine. */
         /* Create OS Thread for APP_Tasks. */
-    xTaskCreate((TaskFunction_t) _APP_Tasks,
+    (void) xTaskCreate((TaskFunction_t) lAPP_Tasks,
                 "APP_Tasks",
                 1024,
                 NULL,
