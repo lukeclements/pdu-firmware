@@ -5,7 +5,3 @@
 Welcome! Here you'll find the software for the Artemis Cubesat's PDU. 
 
 For documentation and tutorials, visit our [project website](https://sites.google.com/hawaii.edu/artemiscubesatkit).
-
-## Flight Software Architetcture 
-
-![Flight Software Architetcture](/images/FSWArchitecture.png)
