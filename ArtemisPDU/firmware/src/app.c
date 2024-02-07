@@ -132,7 +132,7 @@ void enableAllGPIOs(void) {
     BURN2_EN_Set();
     SW_12V_EN1_Set();
     SW_3V3_EN1_Set();
-    SW_3V3_EN2_Set();
+//    SW_3V3_EN2_Set();
     SW_5V_EN1_Set();
     SW_5V_EN2_Set();
     SW_5V_EN3_Set();
@@ -160,7 +160,7 @@ void disableAllGPIOs(void) {
     BURN1_EN_Clear();
     BURN2_EN_Clear();
     SW_12V_EN1_Clear();
-    SW_3V3_EN2_Clear();
+//    SW_3V3_EN2_Clear();
     SW_3V3_EN1_Clear();
     SW_5V_EN2_Clear();
     SW_5V_EN1_Clear();
